@@ -1,0 +1,43 @@
+- @body_class = "montage2 photo"
+- title "#{@user.name}'s Birthday Wish for Lisa", false
+
+#part1.section
+	%h1= "#{@user.name}, it's time for your 15 seconds of fame!"
+
+	%p
+		Since you apparently know Lisa then you should (hopefully) have something 
+		fun to wish for her on her 40th b-day.  She didn't want a big surprise party, 
+		so instead I'm hoping to get everyone who has touched her life to "surprise" 
+		her with a quick message.
+
+	%p
+		Make it fun, moving, heartwarming, tasteful, tasteless, nostalgic, whatever.  
+		Wear a hat, apron or a fake beard.  Who cares.  Just make it your 
+		own and remember to say "Happy Birthday!" :)
+
+	%p.next
+		= link_to "Next >> ", '#part2'
+
+#part2.section
+	%h1= "How to Record Your Message"
+
+	%h2 Option 1 - This Site
+	%p
+		If you have a webcam on this computer, simply click NEXT below and you will 
+		see a little box asking you to click to "Start Recording."  Click that, accept 
+		the prompt that appears and record away.  After that you can even see what others
+		had to say :)
+ 
+	%h2 Option 2 - Use Your Phone
+	%p
+		If you have an iPhone or fancy phone with a camera, feel free to just record your 
+		message that way and email it to
+		= mail_to "josh@birthdaywishesforlisa.com"
+
+	%h2 Deadline
+	%p
+		Whichever way you pick, please just do it by <b>March 15th, 2012!</b>  And keep it secret :)
+
+	%p.next
+		= link_to "Next >> ", new_user_video_path(@user)
+

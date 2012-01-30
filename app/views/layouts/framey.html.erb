@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Framey</title>
+<%= stylesheet_link_tag("framey") %>
+<%= javascript_include_tag "swfobject" %>
+</head>
+<body>
+	<div id="framey_bg">
+		<div id="framey_content_container">
+			<%= yield %>		
+		
+			<div id="framey_footer">
+				<%= link_to "record new", new_framey_video_path %> | <%= link_to "view videos", framey_videos_path %>
+			</div>
+		
+		</div>
+	</div>
+</body>
+
+</html>

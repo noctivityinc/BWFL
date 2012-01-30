@@ -1,0 +1,116 @@
+@import "mixins"
+
+body
+  background-color: $primary_color
+  margin: 0px
+  padding: 0px
+  font:
+    family: Verdana, Helvetica, Arial
+    size: 14px
+
+body.photo
+  #header
+    display: none
+
+  #container
+    width: 550px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    moz-box-shadow: 0 0 5px 5px #888
+    -webkit-box-shadow: 0 0 5px 5px #888
+    box-shadow: 0 0 5px 5px #888
+
+  &.montage
+    background: image-url('lisa_montage.jpg')
+
+  &.montage2
+    background: image-url('lisa_montage2.jpg')
+
+  &.polaroi
+    background: image-url('lisa_polaroid.jpg')
+
+a
+  color: blue
+  img
+    border: none
+
+.placeholder
+  color: #666
+
+.placeholderFocus
+  color: #000
+
+.clear
+  clear: both
+  height: 0
+  overflow: hidden
+
+#header
+  margin: 0px
+  width: 100%
+  background: image-url('paper_bg.png') repeat-x
+  height: 80px
+  border: 1px solid white
+
+  #seal
+    margin: 5px auto
+    img
+      width: 250px
+
+
+#container
+  width: 960px
+  margin: 0 auto
+  background: white
+  padding: 20px 40px
+  margin-top: 100px
+
+  h1
+    color: $red
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4)
+    +macondo
+
+
+#flash_notice,
+#flash_error,
+#flash_alert
+  padding: 5px 8px
+  margin: 10px 0
+
+#flash_notice
+  background-color: #ccffcc
+  border: solid 1px #66cc66
+
+#flash_error,
+#flash_alert
+  background-color: #ffcccc
+  border: solid 1px #cc6666
+
+.field_with_errors
+  display: inline
+
+  input
+    border: red
+
+.error_messages
+  width: 400px
+  padding: 0
+  padding-bottom: 12px
+  margin: 10px auto
+  background-color: #f0f0f0
+  border: 1px dashed gray
+  +lilita
+  font:
+    size: 14pt
+  
+  h2
+    display: none
+
+  p
+    margin: 8px 10px
+    color: $red
+
+  ul
+    margin: 0
+    list-style: none

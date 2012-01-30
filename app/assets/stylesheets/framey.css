@@ -1,0 +1,59 @@
+#framey_recorder {
+	text-align: center;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+h1{
+	margin-bottom: 50px;
+}
+
+#framey_footer{
+
+	text-align: center; 
+	padding: 0px; 
+}
+
+.framey_video_info{
+	float: left;
+	padding: 5px;
+	text-align: left;
+}
+#framey_player_container{
+	text-align: center;
+	margin-right:auto;
+	margin-left: auto;
+	width: 360px;
+	white-space: nowrap;
+}
+
+.framey_video_thumbnail{
+	float: left;
+	padding: 5px;
+}
+.framey_video_profile{
+	height: 125px;
+	margin-right:auto;
+	margin-left: auto;
+	width: 100%;
+
+}
+
+
+#framey_content_container{
+	border: solid 2px;
+	width: 500px;
+	font-family: "Arial";
+	text-align: center; 
+	padding-bottom: 20px;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin: 0 auto;
+	background: lightgray;
+	
+
+}
+

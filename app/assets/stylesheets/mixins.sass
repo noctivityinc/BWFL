@@ -1,0 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker)
+@import url(http://fonts.googleapis.com/css?family=Macondo+Swash+Caps)
+@import url(http://fonts.googleapis.com/css?family=Lilita+One)
+
+@mixin dbg
+	border: 1px dotted red
+
+@mixin submit
+	width: 127px
+	height: 38px
+	background: $red
+	color: white
+	border: none
+	margin-top: 20px
+	font-size: 12pt
+	cursor: pointer
+	&:hover
+		opacity: 0.9
+
+@mixin submit_link
+	+submit
+	display: block
+	padding-top: 10px
+	height: 28px
+	text-decoration: none
+	margin: 15px auto
+
+	&:hover
+		background-color: lighten($red, 25%)
+		color: black
+
+@mixin macondo
+	font-family: 'Macondo Swash Caps', cursive
+
+@mixin lilita
+	font-family: 'Lilita One', cursive
+
+@mixin marker
+	font-family: 'Permanent Marker', cursive
+
+$primary_color: #fff
+$red: #A93133

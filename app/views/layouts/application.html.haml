@@ -1,0 +1,26 @@
+!!!
+%html
+
+  %head
+    %title
+      = yield(:title) || "Untitled"
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag "application"
+    = javascript_include_tag :application
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body{:class => "#{@body_class}"}
+    #header
+      #seal
+        = image_tag "lisa_seal.png", :title => "Seal O Lisa"
+
+    #container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+
+      - if show_title?
+        %h1= yield(:title)
+
+      %div{:id => controller.controller_name, :class => "#{controller.action_name}"}
+        = yield

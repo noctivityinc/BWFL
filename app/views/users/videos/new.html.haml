@@ -1,0 +1,27 @@
+- @body_class = "photo montage"
+- title "#{@user.name}, what would you like to wish Lisa on her birthday?"
+
+#framey_recoder
+	= render_recorder({:max_time => 60, :session_data	=> {:user_id => @user.id}}) 
+
+#messages
+	#start_recording.message
+		* Click 
+		%span.highlight "Start Recording" 
+		(and then "Allow") above
+	#red_dot.message
+		* When you are done with your message, 
+		%br
+		click the 
+		%span.highlight RED DOT
+	#finish.message
+		* Review your message and then click 
+		%span.highlight "Publish" 
+		if you like it or "Delete & Rerecord" to do it again.
+	#publishing.message
+		* Please wait... Publishing...
+	#failed.message
+		* Something went wrong.  Please wait a minute and try again.
+	
+		
+

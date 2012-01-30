@@ -1,0 +1,29 @@
+<h1>Play Video</h1>
+<div id="framey_player_container">
+	
+
+<%= render_player({
+     :video_url => @video.flv_url,          
+     :thumbnail_url => @video.medium_thumbnail_url,
+     :progress_bar_color => "0x123456",
+     :volume_bar_color => "0x123456"
+   }) %>
+	
+	
+	<div class="framey_video_profile">
+		<span class="framey_video_info">
+			<div class="framey_video_name">
+				Name: <%= @video.name %>
+			</div>
+			<div class="framey_video_duration">
+				Length: <%= @video.duration %> seconds
+			</div>
+			<div class="framey_video_filesize">
+				Filesize: <%= @video.filesize / 1024 %> KB
+			</div>
+			<div class="framey_video_date">
+				Created at: <%= @video.created_at %>
+			</div>								
+		</span>
+	</div>
+</div>

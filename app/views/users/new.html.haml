@@ -1,0 +1,25 @@
+- title "Hark Ye Who Enters", false
+
+.copy
+	%h1 Hark Ye Who Enters Lisa's Secret (Video) Birthday Wish
+
+	%p
+		If thou hath come to bid good wishes to the 
+		fairest maiden Lisa in celebration of the 40th (dear god) 
+		eve of her birth, ye hath come to the right place!
+
+	%p
+		So come in y'all and say a few words for the camera!  
+		We've been expecting ya.  But remember, 
+		%span.shhh SHHHHHH!  
+		This is a big secret!
+
+	= form_for @user do |f|
+		= f.error_messages
+		.row
+			= f.text_field :name, :placeholder => "Enter your name"
+		.row
+			= f.text_field :email, :placeholder => "Enter your email" 
+		.row.submit
+			= f.submit "Submit"
+
