@@ -18,3 +18,72 @@
 				background-color: #ffcccc
 				border: solid 1px #cc6666
 				padding: 5px
+
+		#guestbook
+			display: none
+			p
+				width: 400px
+				margin: 15px auto
+				font-size: 10pt
+
+			textarea
+				width: 400px
+				height: 50px
+				background: #efefef
+				border-radius: 5px
+				-moz-border-radius: 5px
+				-webkit-border-radius: 5px
+				border: 1px solid #dedede
+				padding: 10px
+				margin-top: 3px
+				font-size: 0.9em
+				color: #3a3a3a
+
+			input:focus
+				border: 1px solid #97d6eb
+
+			.field_with_errors
+				input
+					border: 2px solid $red
+
+			.row.submit
+				input
+					+submit
+
+	&.show
+		#guestbook
+			margin-top: 15px
+			+marker
+			font-size: 16pt
+
+		#redo
+			margin-top: 50px
+
+	&.index
+		overflow: hidden
+
+		.video
+			width: 120px
+			border: 1px solid gray
+			background: #f0f0f0
+			padding: 10px
+			-webkit-border-radius: 5px
+			-moz-border-radius: 5px
+			border-radius: 5px
+			-moz-box-shadow: 0 0 5px #888
+			-webkit-box-shadow: 0 0 5px #888
+			box-shadow: 0 0 5px #888
+			text-align: center
+			margin: 0px 20px 40px 20px
+			float: left
+			
+			.from
+				margin-top: 10px
+
+			.from, .name
+				+marker
+				display: inline-block
+
+			.name
+				color: $red
+				

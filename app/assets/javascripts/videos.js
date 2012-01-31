@@ -22,14 +22,26 @@ $(function() {
 	})
 
 	Framey.observe('publishSucceeded',function() {
-		$('.message').hide();
-		location.href = '/videos';
+		$('#record').hide();
+		$('#guestbook').fadeIn();
 	})
 
 	Framey.observe('publishFailed',function() {
 		$('.message').hide();
 		$('#failed').fadeIn('fast');
 	})
+
+	$(".various").fancybox({
+		maxWidth	: 600,
+		maxHeight	: 350,
+		fitToView	: true,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: true,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
 
 
 });

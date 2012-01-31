@@ -1,9 +1,12 @@
 class Users::VideosController < ApplicationController
 
-  before_filter :get_user
+  before_filter :get_user, :except => :callback 
 
   def new
-
+    @user.videos.each do |video|
+      Framey::Api.delete_video(video.name)
+      video.destroy
+    end
   end
 
   # framey callback
@@ -21,7 +24,8 @@ class Users::VideosController < ApplicationController
       :mp4_url => params[:video][:mp4_url],
       :small_thumbnail_url => params[:video][:small_thumbnail_url],
       :medium_thumbnail_url => params[:video][:medium_thumbnail_url],
-      :large_thumbnail_url => params[:video][:large_thumbnail_url]
+      :large_thumbnail_url => params[:video][:large_thumbnail_url],
+      :user_id => params[:video][:data][:user_id]
     })
 
     render :text => "" and return
@@ -32,7 +36,7 @@ class Users::VideosController < ApplicationController
   end
 
   def show
-    @video = @user.video.find_by_name(params[:id])
+    @video = @user.videos.find(params[:id])
   end
 
 

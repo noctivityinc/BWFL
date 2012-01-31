@@ -7,25 +7,34 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.videos
-      render :no_videos 
+    if @user.videos.empty?
+      render :no_videos
     else
-
+      redirect_to user_video_path(@user, @user.videos.first)
     end
   end
 
   def new
+    if cookies[:user_id]    
+      @user = User.find(cookies[:user_id])
+      redirect_to @user if @user
+    end
+    
     @user = User.new
   end
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
-      cookies[:user_id] = @user.id
+    @user = User.find_or_initialize_by_email(params[:user])
+    if !@user.new_record?
       redirect_to @user
     else
-      render :action => 'new'
+      if @user.save
+        session[:user_id] = @user.id
+        cookies[:user_id] = @user.id
+        redirect_to @user
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -36,7 +45,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user, :notice  => "Successfully updated user."
+      redirect_to videos_path
     else
       render :action => 'edit'
     end

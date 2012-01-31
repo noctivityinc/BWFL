@@ -12,8 +12,10 @@
 
   %body{:class => "#{@body_class}"}
     #header
-      #seal
-        = image_tag "lisa_seal.png", :title => "Seal O Lisa"
+      #nav
+        .nav= link_to "All Wishes", videos_path if @user.name
+        #seal= image_tag "lisa_seal.png", :title => "Seal - Lisa"
+        .nav= link_to "My Wish", user_video_path(@user, @user.videos.first) if @user.name
 
     #container
       - flash.each do |name, msg|

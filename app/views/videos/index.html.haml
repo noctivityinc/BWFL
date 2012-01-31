@@ -1,21 +1,7 @@
 - title "Lisa's Birthday Wishes"
 
-- if !@videos.empty?
-  - @videos.each do |video|
-    .framey_video_profile
-      %span.framey_video_thumbnail
-        %a{:href => framey_video_path(video.name)}
-          = image_tag video.medium_thumbnail_url
-      %span.framey_video_info
-        .framey_video_name
-          Name:
-          %a{:href => framey_video_path(video.name)}= video.name
-        .framey_video_duration
-          Length: #{video.duration} seconds
-        .framey_video_filesize
-          Filesize: #{video.filesize / 1024} KB
-        .framey_video_date
-          Created at: #{video.created_at}
-    %hr/
-- else
-  %h3 No videos were recorded, yet
+- @videos.each do |video|
+  .video
+    = link_to image_tag(video.medium_thumbnail_url), video_path(video.name), :class => "various fancybox.iframe" 
+    .from from 
+    .name= video.user.name

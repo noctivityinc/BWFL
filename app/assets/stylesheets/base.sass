@@ -8,27 +8,32 @@ body
     family: Verdana, Helvetica, Arial
     size: 14px
 
-body.photo
-  #header
-    display: none
+body
+  &.noheader
+    #header
+      display: none
 
-  #container
-    width: 550px
-    -webkit-border-radius: 10px
-    -moz-border-radius: 10px
-    border-radius: 10px
-    moz-box-shadow: 0 0 5px 5px #888
-    -webkit-box-shadow: 0 0 5px 5px #888
-    box-shadow: 0 0 5px 5px #888
+  &.photo
+    #header
+      display: none
 
-  &.montage
-    background: image-url('lisa_montage.jpg')
+    #container
+      width: 550px
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+      moz-box-shadow: 0 0 5px 5px #888
+      -webkit-box-shadow: 0 0 5px 5px #888
+      box-shadow: 0 0 5px 5px #888
 
-  &.montage2
-    background: image-url('lisa_montage2.jpg')
+    &.montage
+      background: image-url('lisa_montage.jpg')
 
-  &.polaroi
-    background: image-url('lisa_polaroid.jpg')
+    &.montage2
+      background: image-url('lisa_montage2.jpg')
+
+    &.polaroi
+      background: image-url('lisa_polaroid.jpg')
 
 a
   color: blue
@@ -53,8 +58,30 @@ a
   height: 80px
   border: 1px solid white
 
-  #seal
+  #nav
     margin: 5px auto
+    width: 700px
+    overflow: hidden
+
+    div
+      float: left
+      width: 200px
+      display: block
+      padding: 1px
+      text-align: center
+
+    a
+      +marker
+      font-size: 16pt
+      text-decoration: none
+      color: lighten(black, 20%)
+      margin-top: 15px
+      display: block
+
+      &:hover
+        text-decoration: underline
+        color: $red
+
     img
       width: 250px
 

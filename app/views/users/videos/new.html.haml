@@ -1,27 +1,45 @@
 - @body_class = "photo montage"
-- title "#{@user.name}, what would you like to wish Lisa on her birthday?"
+- title "#{@user.name}, what would you like to wish Lisa on her birthday?", false
 
-#framey_recoder
-	= render_recorder({:max_time => 60, :session_data	=> {:user_id => @user.id}}) 
+#record
+	%h1.title= "#{@user.name}, what would you like to wish Lisa on her birthday?"
 
-#messages
-	#start_recording.message
-		* Click 
-		%span.highlight "Start Recording" 
-		(and then "Allow") above
-	#red_dot.message
-		* When you are done with your message, 
-		%br
-		click the 
-		%span.highlight RED DOT
-	#finish.message
-		* Review your message and then click 
-		%span.highlight "Publish" 
-		if you like it or "Delete & Rerecord" to do it again.
-	#publishing.message
-		* Please wait... Publishing...
-	#failed.message
-		* Something went wrong.  Please wait a minute and try again.
+	#framey_recoder
+		= render_recorder({:max_time => 30, :session_data	=> {:user_id => @user.id}}) 
+
+	#messages
+		#start_recording.message
+			* Click 
+			%span.highlight "Start Recording" 
+			(and then "Allow") above
+		#red_dot.message
+			* When you are done with your message, 
+			%br
+			click the 
+			%span.highlight RED DOT
+		#finish.message
+			* Review your message and then click 
+			%span.highlight "Publish" 
+			if you like it or "Delete & Rerecord" to do it again.
+		#publishing.message
+			* Please wait... Publishing...
+		#failed.message
+			* Something went wrong.  Please wait a minute and try again.
+
+#guestbook
+	%h1 Video Published!  Now the fun stuff...
+	= form_for @user do |f|
+		= f.error_messages
+		.row
+			= f.check_box :private_video, :placeholder => "Enter your name"
+			= f.label :private_video, "Check here to hide your video to others (no fun!)"
+		.row
+			%p
+				Please write a few words for Lisa below (yes I know you recorded a video, but sometime's she also likes to read).
+			= f.text_area :message, :placeholder => "Dear Lisa, Happy Birthday!  You have pretty hair..." 
+		.row.submit
+			= f.submit "Submit"
+
 	
 		
 
