@@ -17,7 +17,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
-  attr_accessible :name, :email, :approved, :message, :private_video, :token
+  attr_accessible :name, :email, :approved, :message, :private_video, :token, :recorded_video
   friendly_id :token
 
 

@@ -26,7 +26,7 @@ class Video < ActiveRecord::Base
 
   scope :downloaded , lambda { where("downloaded = ?", true) }
   scope :not_downloaded, lambda { where("downloaded = ?", false) }
-  scope :public, joins(:user).where('"users"."private_video" = ?', false)
+  scope :not_private, joins(:user).where('"users"."private_video" = ?', false)
 
   belongs_to :user
 end

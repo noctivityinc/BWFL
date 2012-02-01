@@ -2,7 +2,8 @@ class VideosController < ApplicationController
   before_filter :get_user
 
   def index
-    @videos = Video.public.page params[:page]
+    @videos = (params[:all] == '1') ? Video.page(params[:page]) : Video.not_private.page(params[:page])
+   
     respond_to do |wants|
       wants.html { 
         if request.xhr?
@@ -26,7 +27,7 @@ class VideosController < ApplicationController
     @user ||= User.find(cookies[:user_id]) unless cookies[:user_id].blank?
 
     redirect_to root_url, :notice => "You need to be logged in to record or watch videos" unless @user
-    redirect_to new_user_video_path(@user) if @user && @user.videos.empty?
+    redirect_to new_user_video_path(@user) if @user && !@user.recorded_video
   end
 
 end

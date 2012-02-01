@@ -3,5 +3,7 @@
 		= link_to image_tag(video.medium_thumbnail_url), video_path(video.name), :class => "various fancybox.iframe" 
 		.from from 
 		.name= video.user.name
+		- if params[:all] == '1'
+			.message= video.user.message
 
 #more= link_to_next_page @videos, 'More', :remote => true 

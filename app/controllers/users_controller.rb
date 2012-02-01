@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.recorded_video = true
     if @user.update_attributes(params[:user])
       redirect_to videos_path
     else
