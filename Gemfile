@@ -32,6 +32,7 @@ group :development do
   gem 'highline'
 	gem 'tunnlr_connector', :require => "tunnlr"
 	gem 'annotate', '~> 2.4.1.beta' 
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :production do
@@ -53,6 +54,5 @@ end
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem "mocha", :group => :test
