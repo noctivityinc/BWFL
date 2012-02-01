@@ -57,7 +57,7 @@ module Bday
     config.assets.version = '1.0'
 
     config.generators do |g|
-      g.template_engine  :erubis
+      # g.template_engine  :erubis
     end
 
   end

@@ -19,6 +19,9 @@ end
 gem 'jquery-rails'
 gem 'framey'
 gem 'email_validator'
+gem 'kaminari'
+gem "friendly_id", "~> 4.0.0"
+
 
 
 group :development do
@@ -30,6 +33,11 @@ group :development do
 	gem 'tunnlr_connector', :require => "tunnlr"
 	gem 'annotate', '~> 2.4.1.beta' 
 end
+
+group :production do
+  gem 'thin'
+end
+
 
 
 # To use ActiveModel has_secure_password

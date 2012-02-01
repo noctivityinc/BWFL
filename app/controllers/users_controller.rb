@@ -6,20 +6,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if @user.videos.empty?
-      render :no_videos
+    @user = User.find(params[:id]) rescue nil
+    if @user
+      if @user.videos.empty?
+        render :no_videos
+      else
+        cookies[:user_id] = @user.id
+        redirect_to user_video_path(@user, @user.videos.first)
+      end
     else
-      redirect_to user_video_path(@user, @user.videos.first)
+      redirect_to root_url
     end
   end
 
   def new
-    if cookies[:user_id]    
-      @user = User.find(cookies[:user_id])
+    unless cookies[:user_id].blank?
+      @user = User.find_by_id(cookies[:user_id])
       redirect_to @user if @user
     end
-    
+
     @user = User.new
   end
 
@@ -29,8 +34,8 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       if @user.save
-        session[:user_id] = @user.id
         cookies[:user_id] = @user.id
+        UserMailer.welcome(@user).deliver
         redirect_to @user
       else
         render :action => 'new'
@@ -56,4 +61,31 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, :notice => "Successfully destroyed user."
   end
+
+  def logout
+    cookies[:user_id] = nil
+    redirect_to root_url
+  end
+
+  def invite
+    @user = User.find(params[:id]) rescue nil
+    emails = params[:emails].split(',')
+
+    emails.each do |email|
+      unless User.find_by_email(email)
+        UserMailer.invite(@user, email).deliver
+        @user.increment(:invites_sent)
+      end
+    end
+    @user.save
+
+    respond_to do |format|
+      format.html {}
+      format.json {
+        render :json => @user
+      }
+    end
+  end
+
+
 end

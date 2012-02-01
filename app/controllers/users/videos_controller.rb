@@ -28,6 +28,8 @@ class Users::VideosController < ApplicationController
       :user_id => params[:video][:data][:user_id]
     })
 
+    UserMailer.video_posted(video).deliver
+
     render :text => "" and return
   end
 

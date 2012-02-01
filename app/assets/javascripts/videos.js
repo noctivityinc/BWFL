@@ -43,5 +43,12 @@ $(function() {
 		closeEffect	: 'none'
 	});
 
+	$.ajaxSettings.dataType = "html";
+
+	$("#more a")
+		.live('click', function() {$(this).hide() } )
+		.live('ajax:success',    function(event, data, status, xhr) { $('#catalog').append($(data)) })
 
 });
+
+var toggleLoading = function(what) { console.log(what); $("#loading").toggle() };

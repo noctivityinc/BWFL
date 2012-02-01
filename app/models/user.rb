@@ -11,10 +11,15 @@
 #  updated_at    :datetime        not null
 #  token         :string(255)
 #  private_video :boolean         default(FALSE)
+#  invites_sent  :integer
 #
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   attr_accessible :name, :email, :approved, :message, :private_video, :token
+  friendly_id :token
+
 
   validates_presence_of :name, :email
   validates :email, :email => true, :if => Proc.new {|record| !record.email.blank?}

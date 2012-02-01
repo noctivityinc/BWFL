@@ -60,12 +60,12 @@ a
 
   #nav
     margin: 5px auto
-    width: 700px
+    width: 960px
     overflow: hidden
 
     div
       float: left
-      width: 200px
+      width: 180px
       display: block
       padding: 1px
       text-align: center
@@ -91,19 +91,70 @@ a
   margin: 0 auto
   background: white
   padding: 20px 40px
-  margin-top: 100px
+  margin-top: 60px
 
   h1
     color: $red
     text-shadow: 1px 1px 1px rgba(0,0,0,.4)
     +macondo
 
+#footer
+  color: white
+  font-size: 10pt
+  background: black
+  -webkit-border-radius: 10px
+  -moz-border-radius: 10px
+  border-radius: 10px
+  width: 500px 
+  padding: 5px
+  margin: 150px auto 0px auto
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"
+  filter: alpha(opacity=75) 
+  -moz-opacity: 0.75
+  -khtml-opacity: 0.75
+  opacity: 0.75
+
+  a
+    color: white
+
+
+#invite
+  display: none
+  width: 500px
+
+  h1
+    color: $red
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4)
+    +macondo
+    margin-bottom: 10px
+
+  textarea
+    width: 300px
+    height: 100px
+    background: #efefef
+    border-radius: 5px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    border: 1px solid #c0c0c0
+    padding: 10px
+    margin-top: 3px
+    font-size: 0.9em
+    color: #3a3a3a
+
+  a
+    clear: both
+    +submit_link
+
+  .thanks
+    display: none
+    color: $red
+    +marker
 
 #flash_notice,
 #flash_error,
 #flash_alert
   padding: 5px 8px
-  margin: 10px 0
+  margin: 30px 0
 
 #flash_notice
   background-color: #ccffcc

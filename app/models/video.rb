@@ -22,6 +22,7 @@
 
 class Video < ActiveRecord::Base
   self.table_name = "framey_videos"
+  paginates_per 20
 
   scope :downloaded , lambda { where("downloaded = ?", true) }
   scope :not_downloaded, lambda { where("downloaded = ?", false) }

@@ -3,10 +3,13 @@ Bday::Application.routes.draw do
   post "/framey/callback" => "users/videos#callback"
 
   resources :users do 
+    post 'invite', :on => :member 
     resources :videos, :only => [ :index, :show, :new], :controller => "users/videos"
   end
 
   resources :videos, :only => [:index, :show] 
+
+  match '/logout' => 'users#logout', :as => 'logout' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

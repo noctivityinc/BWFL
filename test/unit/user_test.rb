@@ -11,6 +11,7 @@
 #  updated_at    :datetime        not null
 #  token         :string(255)
 #  private_video :boolean         default(FALSE)
+#  invites_sent  :integer
 #
 
 require 'test_helper'

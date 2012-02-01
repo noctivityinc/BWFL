@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124210657) do
+ActiveRecord::Schema.define(:version => 20120201211729) do
 
   create_table "framey_videos", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120124210657) do
     t.string   "small_thumbnail_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "downloaded",           :default => false
   end
 
   create_table "users", :force => true do |t|
@@ -35,9 +36,11 @@ ActiveRecord::Schema.define(:version => 20120124210657) do
     t.string   "email"
     t.boolean  "approved"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "token"
+    t.boolean  "private_video", :default => false
+    t.integer  "invites_sent"
   end
 
 end

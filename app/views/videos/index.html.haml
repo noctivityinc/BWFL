@@ -1,7 +1,4 @@
 - title "Lisa's Birthday Wishes"
 
-- @videos.each do |video|
-  .video
-    = link_to image_tag(video.medium_thumbnail_url), video_path(video.name), :class => "various fancybox.iframe" 
-    .from from 
-    .name= video.user.name
+#catalog= render 'video', :locals => {:videos => @videos}
+
