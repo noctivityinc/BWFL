@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :current_user
+  
 
   def index
     @users = User.all

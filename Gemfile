@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '~> 3.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,15 +21,13 @@ gem 'framey'
 gem 'email_validator'
 gem 'kaminari'
 gem "friendly_id", "~> 4.0.0"
-
-
+gem 'haml'
+gem 'net-ssh'
+gem 'highline'
 
 group :development do
   gem "nifty-generators"
   gem 'rails3-generators'
-  gem 'haml'
-  gem 'net-ssh'
-  gem 'highline'
 	gem 'tunnlr_connector', :require => "tunnlr"
 	gem 'annotate', '~> 2.4.1.beta' 
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -38,8 +36,6 @@ end
 group :production do
   gem 'thin'
 end
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -162,7 +162,7 @@ DEPENDENCIES
   net-ssh
   nifty-generators
   pg
-  rails (= 3.2.0)
+  rails (~> 3.2.0)
   rails3-generators
   ruby-debug19
   sass-rails (~> 3.2.3)
