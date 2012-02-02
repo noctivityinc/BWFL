@@ -4,28 +4,24 @@
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
 // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
 //
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-  // the compiled file.
-  //
-  // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-  // GO AFTER THE REQUIRES BELOW.
-  //
-  //= require jquery_ujs
-  //= require framey
-  //= require swfobject
-  //= require_tree .
-  //
-  jQuery(document).ready(function($) {
-    $(":input[placeholder]").placeholder();
+//
+//= require jquery
+//= require jquery_ujs
+//= require framey
+//= require swfobject
+//= require_tree .
+//
+jQuery(document).ready(function($) {
+  $(":input[placeholder]").placeholder();
 
-    $('a.fb.inline').fancybox({
-      'hideOnContentClick': true,
-      beforeShow: function  () {
-        $('#invite textarea').val('');
-      }
-    });
+  $('a.fb.inline').fancybox({
+    'hideOnContentClick': true,
+    beforeShow: function() {
+      $('#invite textarea').val('');
+    }
+  });
 
-    $('#invite a').click(function(ev) {
+  $('#invite a').click(function(ev) {
     ev.preventDefault();
     var $this = $(this);
 
@@ -37,7 +33,9 @@
     if (emails !== '') {
       $.ajax({
         url: $(this).attr('href'),
-        data: {emails: emails},
+        data: {
+          emails: emails
+        },
         dataType: 'json',
         type: 'POST',
         success: function() {
@@ -61,8 +59,8 @@ function findEmailAddresses(StrObj) {
     email = "";
     for (var i = 0; i < emailsArray.length; i++) {
       if (i != 0) email += separateEmailsBy;
-        email += emailsArray[i];
-      }
+      email += emailsArray[i];
     }
-    return email;
   }
+  return email;
+}
