@@ -4,3 +4,13 @@ path enter "${stage_path}"
 
 if file exists Gemfile
 then bundle install --binstubs --without development test ; fi
+
+precompile_assets()
+{
+	path enter "${stage_path}"
+	rake assets:precompile
+}
+
+log step "Precompiling assets"
+precompile_assets
+log step success
