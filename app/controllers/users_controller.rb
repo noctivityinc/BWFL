@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.recorded_video = true
     if @user.update_attributes(params[:user])
-      redirect_to videos_path
+      redirect_to videos_path, :notice => "If your video isn't here yet, don't worry.  Wait a few minutes and refresh and it will be published.  Trust me :)"
     else
       render :action => 'edit'
     end
