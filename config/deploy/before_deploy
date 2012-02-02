@@ -1,0 +1,2 @@
+cd ${shared_path}
+rake assets:precompile
