@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :current_user
-  
+
 
   def index
     @users = User.all
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       if @user.videos.empty?
         render :no_videos
       else
-        cookies[:user_id] = @user.id
+        set_cookie
         redirect_to user_video_path(@user, @user.videos.first)
       end
     else
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       if @user.save
-        cookies[:user_id] = @user.id
+        set_cookie
         UserMailer.welcome(@user).deliver
         redirect_to @user
       else
@@ -87,6 +87,12 @@ class UsersController < ApplicationController
         render :json => @user
       }
     end
+  end
+
+  private 
+
+  def set_cookie
+    cookies[:user_id] = { :value => @user.id, :expires => 1.year.from_now }
   end
 
 
