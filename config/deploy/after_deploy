@@ -1,0 +1,14 @@
+#!/bin/sh
+
+source "$HOME/.rvm/environments/default"
+
+
+restart_thin()
+{
+	cd ${shared_path}
+	sm thin restart
+}
+
+log step "Restarting THIN server"
+restart_thin
+log step success

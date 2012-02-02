@@ -1,13 +1,6 @@
 #!/bin/sh
 
-source "$HOME/.rvm/environments/default"
+path enter "${stage_path}"
 
-precompile_assets()
-{
-	cd ${shared_path}
-	rake assets:precompile
-}
-
-log step "Precompiling assets"
-precompile_assets
-log step success
+if file exists Gemfile
+then bundle install --binstubs --without development test ; fi
