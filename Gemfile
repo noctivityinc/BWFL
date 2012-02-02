@@ -28,15 +28,17 @@ gem 'highline'
 group :development do
   gem "nifty-generators"
   gem 'rails3-generators'
-	gem 'tunnlr_connector', :require => "tunnlr"
-	gem 'annotate', '~> 2.4.1.beta' 
+  gem 'tunnlr_connector', :require => "tunnlr"
+  gem 'annotate', '~> 2.4.1.beta'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :production do
   gem 'thin'
-  gem 'therubyracer'
 end
+
+gem 'therubyracer'
+gem 'execjs'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
