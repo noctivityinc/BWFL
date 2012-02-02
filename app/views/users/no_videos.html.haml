@@ -24,13 +24,20 @@
 #part2.section
 	%h1= "How to Record Your Message"
 
-	%h2 Option 1 - This Site
-	%p
-		If you have a webcam on this computer, simply click NEXT below and you will 
-		see a little box asking you to click to "Start Recording."  Click that, accept 
-		the prompt that appears and record away.  After that you can even see what others
-		had to say :)
- 
+	- if !unsupported
+		%h2 Option 1 - This Site
+		%p
+			If you have a webcam on this computer, simply click NEXT below and you will 
+			see a little box asking you to click to "Start Recording."  Click that, accept 
+			the prompt that appears and record away.  After that you can even see what others
+			had to say :)
+	- else
+		%h2 Option 1 - Use a different browswer (IE Sucks)
+		%p
+			Unfortunately you are using Internet Explorer to view this site.  IE is terrible and 
+			doesn't let you do a lot of things, such as recording video.  So use Chrome, Safari or 
+			Firefox or simply use Option 2 below but you can't go further with IE right now.  Sorry. 
+	 
 	%h2 Option 2 - Use Your Phone
 	%p
 		If you have an iPhone or fancy phone with a camera, feel free to just record your 
@@ -41,6 +48,7 @@
 	%p
 		Whichever way you pick, please just do it by <b>March 15th, 2012!</b>  And keep it secret :)
 
-	%p.next
-		= link_to "Next >> ", new_user_video_path(@user)
+	- if !unsupported
+		%p.next
+			= link_to "Next >> ", new_user_video_path(@user)
 

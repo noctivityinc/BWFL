@@ -4,7 +4,6 @@ class Users::VideosController < ApplicationController
 
   def new
     @user.videos.each do |video|
-      Framey::Api.delete_video(video.name)
       video.destroy
     end
   end

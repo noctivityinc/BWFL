@@ -10,7 +10,6 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
 //= require jquery_ujs
 //= require framey
 //= require_tree .
@@ -27,6 +26,10 @@ jQuery(document).ready(function($) {
 
   $('#invite a').click(function(ev) {
   	ev.preventDefault();
+    var $this = $(this);
+
+    $this.text('Please wait...').addClass('inactive');
+    console.log('click');
   	
   	var emails = findEmailAddresses($('#invite textarea').val());
 
@@ -39,9 +42,12 @@ jQuery(document).ready(function($) {
         success: function() {
           $('#invite .thanks').show().delay(3000).fadeOut();        
           $('#invite textarea').val('');
+          $this.text('Submit More').removeClass('inactive');
         }
       })
-  	}
+  	} else {
+      $this.text('Submit').removeClass('inactive'); 
+    }
   })
 });
 

@@ -26,6 +26,7 @@ gem 'haml'
 gem 'net-ssh'
 gem 'highline'
 gem 'execjs'
+gem 'useragent'
 
 group :development do
   gem "nifty-generators"

@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   def create
     @user = User.find_or_initialize_by_email(params[:user])
     if !@user.new_record?
+      set_cookie
       redirect_to @user
     else
       if @user.save

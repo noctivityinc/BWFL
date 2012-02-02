@@ -147,6 +147,7 @@ GEM
     uglifier (1.2.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    useragent (0.4.6)
 
 PLATFORMS
   ruby
@@ -174,3 +175,4 @@ DEPENDENCIES
   thin
   tunnlr_connector
   uglifier (>= 1.0.3)
+  useragent

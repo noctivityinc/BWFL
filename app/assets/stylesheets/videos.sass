@@ -3,6 +3,23 @@
 #videos
 	&.new
 		position: relative
+
+		h1
+			&.important
+				+lilita
+				padding: 5px
+				background: #FFFFCC
+				border: 3px solid #FFFF00
+				display: block
+
+				div
+					color: black
+					text-shadow: none !important
+
+					span
+						color: $red
+
+
 		#messages
 			+marker
 			font-size: 14pt

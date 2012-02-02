@@ -29,4 +29,13 @@ class Video < ActiveRecord::Base
   scope :not_private, joins(:user).where('"users"."private_video" = ?', false)
 
   belongs_to :user
+
+  before_destroy :delete_from_framey
+
+  private 
+
+  def delete_from_framey
+  	Framey::Api.delete_video(video.name) rescue nil
+  end
+
 end
