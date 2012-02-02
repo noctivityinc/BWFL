@@ -12,6 +12,7 @@
   //
   //= require jquery_ujs
   //= require framey
+  //= require swfobject
   //= require_tree .
   //
   jQuery(document).ready(function($) {
