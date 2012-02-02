@@ -8,6 +8,6 @@ precompile_assets()
 	rake assets:precompile
 }
 
-log step "Precompiling assets"
-precompile_assets
-log step success
+# log step "Precompiling assets"
+# precompile_assets
+# log step success
