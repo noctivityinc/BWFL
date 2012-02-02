@@ -1,2 +1,2 @@
-cd ~/
+cd ${shared_path}
 sm thin restart
