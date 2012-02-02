@@ -24,19 +24,22 @@
 #part2.section
 	%h1= "How to Record Your Message"
 
-	- if !unsupported
+	.supported
 		%h2 Option 1 - This Site
 		%p
 			If you have a webcam on this computer, simply click NEXT below and you will 
 			see a little box asking you to click to "Start Recording."  Click that, accept 
 			the prompt that appears and record away.  After that you can even see what others
 			had to say :)
-	- else
-		%h2 Option 1 - Use a different browswer (IE Sucks)
+	
+	.not_supported
+		%h2 Option 1 - Install Flash and Record On This Site
 		%p
-			Unfortunately you are using Internet Explorer to view this site.  IE is terrible and 
-			doesn't let you do a lot of things, such as recording video.  So use Chrome, Safari or 
-			Firefox or simply use Option 2 below but you can't go further with IE right now.  Sorry. 
+			Unfortunately you don't have a version of Flash installed that supports recording video 
+			from this site.  This is easy to fix - click on the button below to install / upgrade 
+			Flash and then restart your browser can come back to the site.
+			%p
+				= link_to image_tag('http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif'), "http://www.adobe.com/go/getflashplayer"
 	 
 	%h2 Option 2 - Use Your Phone
 	%p
@@ -48,7 +51,7 @@
 	%p
 		Whichever way you pick, please just do it by <b>March 15th, 2012!</b>  And keep it secret :)
 
-	- if !unsupported
+	.supported
 		%p.next
 			= link_to "Next >> ", new_user_video_path(@user)
 

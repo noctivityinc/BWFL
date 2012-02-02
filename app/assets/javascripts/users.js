@@ -10,5 +10,10 @@ $(function() {
 		})
 	})
 
+	if (!swfobject.hasFlashPlayerVersion("10.2")) {
+    $('.not_supported').show();
+    $('.supported').hide();
+  }
+
 
 });
