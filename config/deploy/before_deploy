@@ -1,2 +1,13 @@
-cd ${shared_path}
-rake assets:precompile
+#!/bin/sh
+
+source "$HOME/.rvm/environments/default"
+
+precompile_assets()
+{
+	cd ${shared_path}
+	rake assets:precompile
+}
+
+log step "Precompiling assets"
+precompile_assets
+log step success
