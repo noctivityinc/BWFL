@@ -24,22 +24,32 @@
 #part2.section
 	%h1= "How to Record Your Message"
 
-	.supported
-		%h2 Option 1 - This Site
-		%p
-			If you have a webcam on this computer, simply click NEXT below and you will 
-			see a little box asking you to click to "Start Recording."  Click that, accept 
-			the prompt that appears and record away.  After that you can even see what others
-			had to say :)
-	
-	.not_supported
-		%h2 Option 1 - Install Flash and Record On This Site
-		%p
-			Unfortunately you don't have a version of Flash installed that supports recording video 
-			from this site.  This is easy to fix - click on the button below to install / upgrade 
-			Flash and then restart your browser can come back to the site.
+	- if !unsupported
+		.supported
+			%h2 Option 1 - This Site
 			%p
-				= link_to image_tag('http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif'), "http://www.adobe.com/go/getflashplayer"
+				If you have a webcam on this computer, simply click NEXT below and you will 
+				see a little box asking you to click to "Start Recording."  Click that, accept 
+				the prompt that appears and record away.  After that you can even see what others
+				had to say :)
+		
+		.not_supported
+			%h2 Option 1 - Install Flash and Record On This Site
+			%p
+				Unfortunately you don't have a version of Flash installed that supports recording video 
+				from this site.  This is easy to fix - click on the button below to install / upgrade 
+				Flash and then restart your browser can come back to the site.
+				%p
+					= link_to image_tag('http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif'), "http://www.adobe.com/go/getflashplayer"
+
+	- else
+		%h2 Option 1 - Upgrade Firefox and Try Again
+		%p
+			Unfortunately you are using an older version of Firefox that does not play well with web cams.
+			You can 
+			= link_to "click here", 'http://www.getfirefox.com'
+			to download the latest version of Firefox so you can record a video on this site or use Option 2 below.
+		
 	 
 	%h2 Option 2 - Use Your Phone
 	%p
@@ -51,7 +61,8 @@
 	%p
 		Whichever way you pick, please just do it by <b>March 15th, 2012!</b>  And keep it secret :)
 
-	.supported
-		%p.next
-			= link_to "Next >> ", new_user_video_path(@user)
+	- if !unsupported
+		.supported
+			%p.next
+				= link_to "Next >> ", new_user_video_path(@user)
 
